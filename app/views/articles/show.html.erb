@@ -7,3 +7,7 @@
 
 <!-- Takes user to form to edit this article -->
 <p><%= link_to "Edit", edit_article_path(@article) %></p>
+
+<!-- Lets user delete this article -->
+<p><%= link_to "Delete this article", article_path(@article), method: :delete,
+data: {confirm: "Are you sure?"}%></p>
