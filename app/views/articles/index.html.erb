@@ -5,7 +5,9 @@
   <!-- Displays a link to each article -->
   <% @articles.each do |article| %>
     <li>
-      <%= link_to article.title, article %>
+      <% comment_count = article.comments.length %>
+      <%= link_to "#{article.title} (#{comment_count} #{comment_count == 1 ?
+      "comment" : "comments"})", article %>
     </li>
   <% end %>
 </ul>
