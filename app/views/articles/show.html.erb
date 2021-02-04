@@ -11,3 +11,10 @@
 <!-- Lets user delete this article -->
 <p><%= link_to "Delete this article", article_path(@article), method: :delete,
 data: {confirm: "Are you sure?"}%></p>
+
+<!-- Displays comments -->
+<h2> Comments </h2>
+<%= render @article.comments %>
+
+<h2> Add a Comment </h2>
+<%= render 'comments/form' %>

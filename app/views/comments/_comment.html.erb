@@ -1,0 +1,8 @@
+<!-- Partial that displays a comment -->
+<div>
+  <strong>Commenter: </strong> <%= comment.commenter %> <br>
+  <%= comment.body %> <br>
+  <%= link_to "Delete Comment", [comment.article, comment], method: :delete,
+  data: {confirm: "Are you sure?"} %>
+</div>
+<br>
