@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :authors
   root 'articles#index'
   resources :widgets
   resources :articles do
