@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_145330) do
+ActiveRecord::Schema.define(version: 2021_03_01_161541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2021_03_01_145330) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "authors_id"
+    t.index ["authors_id"], name: "index_articles_on_authors_id"
   end
 
   create_table "authors", force: :cascade do |t|
@@ -45,5 +47,6 @@ ActiveRecord::Schema.define(version: 2021_03_01_145330) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "articles", "authors", column: "authors_id"
   add_foreign_key "comments", "articles"
 end
