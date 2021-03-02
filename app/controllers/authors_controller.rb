@@ -12,7 +12,7 @@ class AuthorsController < ApplicationController
     @author = Author.new(author_params)
 
     if @author.save
-      redirect_to authors_url
+      redirect_to root_url
     else
       render :new
     end
@@ -23,5 +23,5 @@ class AuthorsController < ApplicationController
     params.require(:author).permit(:name)
   end
 
-  
+
 end
