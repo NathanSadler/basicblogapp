@@ -1,23 +1,58 @@
-<h1>Articles</h1>
-<ul>
-  <%= link_to "Create a new article", new_article_path %>
+<!DOCTYPE html>
+<html>
 
-  <!-- Displays a link to each article -->
-  <% @articles.each do |article| %>
-    <li>
-      <% comment_count = article.comments.length %>
-      <%= link_to "#{article.title} (#{comment_count} #{comment_count == 1 ?
-      "comment" : "comments"})", article %>
-    </li>
-  <% end %>
-</ul>
+<head>
+  <%= stylesheet_link_tag "articles.scss" %>
+</head>
 
-<h1> Authors </h1>
-  <%= link_to "Create a new author", new_author_path %>
+<body style="margin-left:1%">
 
-  <!-- Displays a link to a list of each author's articles -->
-  <% @authors.each do |author| %>
-    <ul>
-      <li> <%= link_to author.name, author %> </li>
+  <!-- Displays the Articles heading with a link to the article creation section -->
+  <div class="flex-container">
+    <div>
+      <h1>Articles</h1>
+    </div>
+
+    <div style="margin-left:5%">
+      <%= link_to "Create a new article", new_article_path %>
+    </div>
+  </div>
+
+<!-- Displays a table with a link to each article, the author of the article, and
+the number of comments on the article -->
+  <table>
+    <% @articles.each do |article| %>
+      <tr>
+        <td> <%= link_to article.title, article %> </td>
+        <td> <%= "By #{Author.find(id=article.authors_id).name}"%> </td>
+        <td> <%= pluralize(article.comments.length, "Comment")%>
+      </tr>
+    <% end %>
+  </table>
+
+<!--    <ul>
+
+
+      <% @articles.each do |article| %>
+        <li>
+          <% comment_count = article.comments.length %>
+          <%= link_to "#{article.title} (#{comment_count} #{comment_count == 1 ?
+          "comment" : "comments"})", article %>
+        </li>
+        <% end %>
     </ul>
-  <% end %>
+  -->
+
+
+    <h1> Authors </h1>
+    <%= link_to "Create a new author", new_author_path %>
+
+    <!-- Displays a link to a list of each author's articles -->
+    <% @authors.each do |author| %>
+      <ul>
+        <li> <%= link_to author.name, author %> </li>
+      </ul>
+    <% end %>
+
+</body>
+</html>
