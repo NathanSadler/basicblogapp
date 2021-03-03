@@ -30,19 +30,6 @@ the number of comments on the article -->
     <% end %>
   </table>
 
-<!--    <ul>
-
-
-      <% @articles.each do |article| %>
-        <li>
-          <% comment_count = article.comments.length %>
-          <%= link_to "#{article.title} (#{comment_count} #{comment_count == 1 ?
-          "comment" : "comments"})", article %>
-        </li>
-        <% end %>
-    </ul>
-  -->
-
 
     <h1> Authors </h1>
     <%= link_to "Create a new author", new_author_path %>
