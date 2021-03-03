@@ -1,1 +1,11 @@
-<%= %>
+<!--Displays the Author's name -->
+<h1> Author: <%= Author.find(id=@author_id).name %> </h1>
+
+<!-- Displays links to each of the Author's articles -->
+<ul>
+  <% @articles.each do |article| %>
+    <% if article.authors_id.to_i == @author_id.to_i %>
+      <li> <%= link_to article.title, article %> </li>
+      <% end %>
+  <% end %>
+</ul>

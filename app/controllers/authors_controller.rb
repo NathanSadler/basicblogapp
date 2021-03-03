@@ -27,7 +27,8 @@ class AuthorsController < ApplicationController
 
   # For showing an author's articles
   def show
-    @author = params[:id]
+    @articles = Article.all
+    @author_id = params[:id]
   end
 
 
