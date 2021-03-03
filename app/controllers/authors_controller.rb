@@ -31,5 +31,21 @@ class AuthorsController < ApplicationController
     @author_id = params[:id]
   end
 
+  # For updating an Author
+  def edit
+    @author = Author.find(params[:id])
+  end
+
+  def update
+    @author = Author.find(params[:id])
+
+    if @author.update(author_params)
+      redirect_to root_url
+    else
+      render :new
+    end
+
+  end
+
 
 end
