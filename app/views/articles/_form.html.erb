@@ -1,18 +1,28 @@
 <%= form_with model: article do |form| %>
+
+  <!-- Part of form for adding article author -->
+  <!--
+  <div>
+    <%= form.select :authors_id, Author.all.collect {|a| [a.name, a.id]}%>
+  </div>
+-->
+<div>
+  <%= form.number_field :authors_id %> <br>
+
+</div>
+
+  <!-- Part of form for adding article title -->
   <div>
     <%= form.label :title %><br>
     <%= form.text_field :title %><br>
-    <% article.errors.full_messages_for(:title).each do |message| %>
-      <div id="error"> <%= message %> </div>
-    <% end %>
+
   </div>
 
+  <!-- Part of form for adding article body -->
   <div>
     <%= form.label :body %><br>
     <%= form.text_area :body %><br>
-    <% article.errors.full_messages_for(:body).each do |message| %>
-      <div id="error"> <%= message %> </div>
-    <% end %>
+
   </div>
 
   <div>

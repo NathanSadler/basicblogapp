@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to @article
     else
+      p @article.errors.full_messages
       render :new
     end
   end
