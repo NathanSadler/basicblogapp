@@ -1,15 +1,9 @@
 <%= form_with model: article do |form| %>
 
   <!-- Part of form for adding article author -->
-  <!--
   <div>
     <%= form.select :authors_id, Author.all.collect {|a| [a.name, a.id]}%>
   </div>
--->
-<div>
-  <%= form.number_field :authors_id %> <br>
-
-</div>
 
   <!-- Part of form for adding article title -->
   <div>
