@@ -11,3 +11,13 @@
     </li>
   <% end %>
 </ul>
+
+<h1> Authors </h1>
+  <%= link_to "Create a new author", new_author_path %>
+
+  <% @authors.each do |author| %>
+    <ul>
+      
+      <li> <%= link_to author.name, author %> </li>
+    </ul>
+  <% end %>
