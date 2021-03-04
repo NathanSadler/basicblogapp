@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_150637) do
+ActiveRecord::Schema.define(version: 2021_03_04_160306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,6 @@ ActiveRecord::Schema.define(version: 2021_03_03_150637) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "articles", "authors", column: "authors_id"
-  add_foreign_key "comments", "articles"
+  add_foreign_key "articles", "authors", column: "authors_id", on_delete: :cascade
+  add_foreign_key "comments", "articles", on_delete: :cascade
 end
