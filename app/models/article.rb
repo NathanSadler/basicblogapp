@@ -5,5 +5,4 @@ class Article < ActiveRecord::Base
 
   validates :title, presence: true
   validates :body, presence: true, length: { minimum: 10 }
-  #validates_numericality_of :author, on: :create
 end
