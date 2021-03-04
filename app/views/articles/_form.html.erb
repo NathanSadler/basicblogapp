@@ -11,13 +11,22 @@
   <div>
     <%= form.label :title %><br>
     <%= form.text_field :title %><br>
-
   </div>
 
   <!-- Part of form for adding article body -->
   <div>
     <%= form.label :body %><br>
     <%= form.text_area :body %><br>
+  </div>
+
+  <!-- Displays relavent error messages -->
+  <div class="error">
+    <% if article.errors.any? %>
+      <%= "Errors:" %><br>
+      <% article.errors.full_messages.each do |a| %>
+        <%= a %><br>
+      <% end %>
+    <% end %>
   </div>
 
   <div>
