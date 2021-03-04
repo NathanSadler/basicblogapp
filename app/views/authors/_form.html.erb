@@ -2,5 +2,13 @@
   <%= form.label :name %>
   <%= form.text_field :name %>
   <br>
+  <!-- Displays error messages -->
+  <div class="error">
+    <% if author.errors.any? %>
+      <% author.errors.full_messages.each do |a| %>
+        <%= a %><br>
+      <% end %>
+    <% end %>
+  </div>
   <%= form.submit "#{action}" %>
 <% end %>
