@@ -28,7 +28,7 @@ class AuthorsController < ApplicationController
   # For showing an author's articles
   def show
     @articles = Article.all
-    @author_id = params[:id]
+    @author = Author.find(params[:id])
   end
 
   # For updating an Author
@@ -44,8 +44,13 @@ class AuthorsController < ApplicationController
     else
       render :new
     end
-
   end
 
+  def destroy
+    @author = Author.find(params[:id])
+    @author.delete
+    redirect_to root_url
+
+  end
 
 end

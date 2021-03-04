@@ -1,10 +1,22 @@
-<!--Displays the Author's name -->
-<h1> Author: <%= Author.find(id=@author_id).name %> </h1>
+<!--Displays the Author's name, link to their edit page, and button for deleting them -->
+<%= stylesheet_link_tag "authors.scss" %>
+<div class="flex-container">
+<div> <h2> Author: <%= @author.name %> </h2> </div>
+<div style="margin-left: 10px">
+  <%= link_to "Edit this author", edit_author_url(@author) %> </div>
+<div style="margin-left: 10px">
+  <%= link_to "Delete this author", author_path(@author), method: :delete,
+data: {confirm: "Are you sure?"}%></div>
+</div>
+
+
+
+
 
 <!-- Displays links to each of the Author's articles -->
 <ul>
   <% @articles.each do |article| %>
-    <% if article.authors_id.to_i == @author_id.to_i %>
+    <% if article.authors_id.to_i == @author.id.to_i %>
       <li> <%= link_to article.title, article %> </li>
       <% end %>
   <% end %>
